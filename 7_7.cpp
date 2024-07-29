@@ -40,3 +40,4 @@ int main(){
 
 // Notes
 // -> we have used int32_t for signed int i.e we need to include -ve int as well 
+//if we are using if case of int_min and int_mas we can skip using if(n<pow(2,31 ))and we can also skip using int32_t but it might increase space/memory complexity
