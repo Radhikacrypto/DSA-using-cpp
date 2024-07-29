@@ -1,29 +1,71 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
 
+int BinaryToDecimal(int n){
+    int place=1;
+    int ans=0;
+    while(n!=0){
+        int rem=n%10;
+        n=n/10;
+        ans=rem*place+ans;
+        place=place*2;
+    }
 
-int main() {
+    return ans;
+} 
+
+int DecimalToBinary(int n){
+    int place=1;
+    int ans=0;
+    while(n){
+        int rem=n%2;
+        n=n/2;
+        ans=rem*place+ans;
+        place*=10;
+    }
+
+    return ans;
+}
+
+int octToDecimal(int n){
+    int place =1;
+    int ans=0;
+    while(n){
+        int rem=n%10;
+        n=n/10;
+        ans=rem*place+ans;
+        place*=8;
+    }
+    return ans;
+}
+int DecimalToOct(int n){
+    int place=1;
+    int ans=0;
+    while(n){
+        int rem=n%8;
+        n=n/8;
+        ans=rem*place+ans;
+        place*=10;
+    }
+
+    return ans;
+}
+int octToBinary(int n){
+   int ans= octToDecimal(n);
+   ans= DecimalToBinary(ans);
+   return ans;
+}
+int BinaryToOct (int n){
+    int ans=BinaryToDecimal(n);
+    ans = DecimalToOct(ans);
+    return ans;
+}
+int main(){
     int n;
-    cout << "Enter a number: " << endl;
-    cin >> n;
+    cout<<"enter a number to be converted from to decimal"<<endl;
+    cin>>n;
+    int decimal=BinaryToOct(n);
+    cout<<"the result is : "<<decimal<<endl;
 
-    if (n == 0) {
-        cout << "The binary format of 0 is 0" << endl;
-        return 0;
-    }
-
-    //not using ^ beacuse this means xor ...we need to use exp for exponent
-    int rem, q = n;
-    int ans = 0;
-    int place = 1;  // to keep track of place value in binary
-
-    while (q != 0) {
-        rem = q % 2;
-        ans = rem * place + ans;
-        q = q / 2;
-        place = place * 10;  // move to the next place value in binary
-    }
-
-    cout << "The binary format of " << n << " is " << ans << endl;
-    return 0;
+return 0;
 }
