@@ -1,11 +1,11 @@
 #include<iostream>
-#include<bitset>
+#include<cmath>
 using namespace std;
 int main(){
-    int a=5;
-    int b=(~a);
-    bitset<32> c(b);
-  cout<<c;
+   int a= 8;
+   int b= log2(a);
+   cout<<b;
+  
 
     return 0;
 }

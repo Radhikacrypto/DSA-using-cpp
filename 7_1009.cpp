@@ -1,23 +1,23 @@
 #include <iostream>
 using namespace std;
 
-int findComplement(int n){
-    int m=n ;
+int findComplement(int num){
+    int m=num ;
     int mask=0;
     while(m){
         m=m>>1;
         mask=(mask<<1)|1;
     }
-    int ans=(~n)&mask;
+    int ans=(~num)&mask;
     return ans;
 }
 
 int main(){
-    int n;
+    int num;
     cout<<"enter a number "<<endl;
-    cin>>n;
-    int result = findComplement(n);
-    cout<<"comple of binary of "<<n<<" is "<<result<<endl;
+    cin>>num;
+    int result = findComplement(num);
+    cout<<"comple of binary of "<<num<<" is "<<result<<endl;
     return 0;
 
 }
