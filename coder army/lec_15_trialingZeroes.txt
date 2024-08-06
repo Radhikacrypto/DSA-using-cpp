@@ -1,0 +1,44 @@
+notes 
+int factorial(int n) {
+        int ans = 1;
+        for (int i = 1; i <= n; i++) {
+            ans *= i;
+        }
+        return ans;
+    }
+    int trailing_zeroes(int n) {
+        int factorialResult = factorial(n);
+        int zeroes = 0;
+        while (factorialResult) {
+            int rem = factorialResult % 10;  // Corrected to use factorialResult instead of n
+            if (rem == 0) {
+                zeroes++;
+            }
+            else if(rem!=0){
+                return zeroes;
+            }
+            factorialResult = factorialResult / 10;  // Corrected to use factorialResult instead of n
+        }
+        return zeroes;
+    }
+
+    this method is way too wrong first biggest reason is it cannot handle large value factorial
+
+
+
+
+    TIME LIMIT EXCEEDED 
+    /*int trailingZeroes(int n){
+int rem = n/5;
+int i=2;
+while(n>=pow(5,i)){
+    rem=rem+(i-1);
+    i++;
+}
+while(n%10==0){
+    rem=rem+1;
+    n=n/10;
+
+}
+return rem;*/
+    }
